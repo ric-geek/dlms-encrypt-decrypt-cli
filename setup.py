@@ -9,4 +9,9 @@ setup(name='dlms_cli',
       license='MIT',
       packages=['dlms_encrypt_decrypt_tool'],
       install_requires=['cryptography'],
-      zip_safe=False)
+      zip_safe=False,
+      entry_points={
+            'console_scripts':['dlms_cli = dlms_encrypt_decrypt_tool.dlms_cli:main',
+                               ],
+            }
+      )

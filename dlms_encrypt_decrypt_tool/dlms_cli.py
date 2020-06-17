@@ -23,15 +23,21 @@ def create_iv(frame_counter, system_title):
     return unhexlify(system_title + frame_counter)
 
 
-parser = argparse.ArgumentParser(description="Simple tool for encrypt and decrypt DLMS APDU")
-parser.add_argument("system_title", type=str, help="System Title")
-parser.add_argument("frame_counter", type=str, help="Frame Counter")
-parser.add_argument("encryption_key", type=str, help="Encryption Key")
-parser.add_argument("authentication_key", type=str, help="Authentication Key")
-parser.add_argument("apdu", type=str, help="DLMS APDU")
-args = parser.parse_args()
+def main():
 
-ret = cifra_decifra(args.system_title, args.frame_counter, args.encryption_key, args.authentication_key, args.apdu)
+    parser = argparse.ArgumentParser(description="Simple tool for encrypt and decrypt DLMS APDU")
+    parser.add_argument("system_title", type=str, help="System Title")
+    parser.add_argument("frame_counter", type=str, help="Frame Counter")
+    parser.add_argument("encryption_key", type=str, help="Encryption Key")
+    parser.add_argument("authentication_key", type=str, help="Authentication Key")
+    parser.add_argument("apdu", type=str, help="DLMS APDU")
+    args = parser.parse_args()
 
-# Print encrypted or decrypted DLMS APDU
-print(ret)
+    ret = cifra_decifra(args.system_title, args.frame_counter, args.encryption_key, args.authentication_key, args.apdu)
+
+    # Print encrypted or decrypted DLMS APDU
+    print(ret)
+
+if __name__ == "__main__":
+
+    main()
