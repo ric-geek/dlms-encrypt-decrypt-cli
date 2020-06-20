@@ -36,7 +36,8 @@ def main():
     ret = cifra_decifra(args.system_title, args.frame_counter, args.encryption_key, args.authentication_key, args.apdu)
 
     # Print encrypted or decrypted DLMS APDU
-    print(ret)
+    print("Encrypted/Dcrypted APDU: " + ret[:-32])
+    print("Authentication TAG: " + ret[-32:])
 
 if __name__ == "__main__":
 
