@@ -6,6 +6,10 @@ Use pip:
 ```
 pip install setup.py
 ```
+Use pypi:
+```
+pip install dlms-cli
+```
 ## Usage
 ### Encrypt
 **Example**\
