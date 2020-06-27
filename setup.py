@@ -10,9 +10,9 @@ def readme():
 
 
 setup(name='dlms_cli',
-      version='0.1',
+      version='0.2',
       description='DLMS CLI Tool for encrypt and decrypt APDU',
-      long_description = readme(),
+      long_description=readme(),
       long_description_content_type="text/markdown",
       url='https://github.com/ric-geek/dlms-encrypt-decrypt-cli',
       author='Riccardo',
@@ -20,8 +20,14 @@ setup(name='dlms_cli',
       license='MIT',
       classifiers=[
             "License :: OSI Approved :: MIT License",
+            "Programming Language :: Python :: 3 :: Only",
             "Programming Language :: Python :: 3",
-            "Programming Language :: Python :: 3.7"
+            "Programming Language :: Python :: 3.6",
+            "Programming Language :: Python :: 3.7",
+            "Programming Language :: Python :: 3.8",
+            "Operating System :: Microsoft :: Windows",
+            "Operating System :: POSIX :: Linux",
+            "Development Status :: 5 - Production/Stable"
       ],
       packages=['dlms_encrypt_decrypt_tool'],
       include_package_data=True,
