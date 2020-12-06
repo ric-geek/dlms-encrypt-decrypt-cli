@@ -1,8 +1,10 @@
 import argparse
+import os
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from binascii import unhexlify
 
 SECURITY_HEADER = ["10", "30"]
+
 
 def auth_apdu(system_title, frame_counter, encryption_key, authentication_key, stoc):
 
@@ -50,28 +52,34 @@ def create_iv(frame_counter, system_title):
 
 def main():
 
-    parser = argparse.ArgumentParser(description="Simple tool for encrypt and decrypt DLMS APDU")
-    parser.add_argument("system_title", type=str, help="System Title")
-    parser.add_argument("frame_counter", type=str, help="Frame Counter")
-    parser.add_argument("encryption_key", type=str, help="Encryption Key")
-    parser.add_argument("authentication_key", type=str, help="Authentication Key")
-    parser.add_argument("apdu", type=str, help="DLMS APDU")
-    parser.add_argument("-a", "--auth", help="Authenticate data", action="store_true")
+    parser = argparse.ArgumentParser(description="Simple tool for encrypt and decrypt DLMS APDU", prog='DLMS CLI')
+
+    parser.add_argument('-e', '--enc', nargs=5, help='Encrypt APDU')
+    parser.add_argument('-d', '--dec', nargs=5, help='Decrypt APDU')
+    parser.add_argument('-a', '--auth', nargs=5, help='Authenticate APDU')
+    parser.add_argument('-k', '--key', action='store_true', help='Generate encryption key')
+
     args = parser.parse_args()
 
-    if(args.auth):
+    if args.key:
 
-        ret = auth_apdu(args.system_title, args.frame_counter, args.encryption_key, args.authentication_key, args.apdu)
+        chiave = os.urandom(16).hex()
+        print(f"Encryption Key: {chiave}")
 
-        print(f"TAG: {ret}")
+    if args.enc:
 
-    else:
-
-        ret = cifra_decifra(args.system_title, args.frame_counter, args.encryption_key, args.authentication_key, args.apdu)
+        ret = cifra_decifra(args.enc[0], args.enc[1], args.enc[2], args.enc[3], args.enc[4])
 
         # Print encrypted or decrypted DLMS APDU
         print(f"Encrypted/Dcrypted APDU: {ret[:-32]}")
         print(f"Authentication TAG: {ret[-32:]}")
+
+    if args.auth:
+
+        ret = auth_apdu(args.auth[0], args.auth[1], args.auth[2], args.auth[3], args.auth[4])
+
+        print(f"TAG: {ret}")
+
 
 if __name__ == "__main__":
 

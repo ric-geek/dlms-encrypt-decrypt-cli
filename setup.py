@@ -1,5 +1,6 @@
 from setuptools import setup
 
+
 def readme():
 
       with open('README.md') as f:
@@ -10,13 +11,12 @@ def readme():
 
 
 setup(name='dlms_cli',
-      version='0.2',
+      version='1.0',
       description='DLMS CLI Tool for encrypt and decrypt APDU',
       long_description=readme(),
       long_description_content_type="text/markdown",
       url='https://github.com/ric-geek/dlms-encrypt-decrypt-cli',
       author='Riccardo',
-      author_email='solidkind@gmail.com',
       license='MIT',
       classifiers=[
             "License :: OSI Approved :: MIT License",
@@ -25,6 +25,7 @@ setup(name='dlms_cli',
             "Programming Language :: Python :: 3.6",
             "Programming Language :: Python :: 3.7",
             "Programming Language :: Python :: 3.8",
+            "Programming Language :: Python :: 3.9",
             "Operating System :: Microsoft :: Windows",
             "Operating System :: POSIX :: Linux",
             "Development Status :: 5 - Production/Stable"

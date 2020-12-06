@@ -1,8 +1,9 @@
-# Dlms encrypt-decrypt CLI
-With this tool you can perform these operation:\
+# Dlms encrypt-decrypt command line tool
+With this tool you can perform these operation:
 - Generate encrypted APDU
 - Decrypt APDU
 - Authenticate APDU
+- Generate encryption key
 
 ## Installation
 Use pip:
@@ -22,7 +23,7 @@ Encryption Key = 454E4352595054494F4E4B45594B4559\
 Authentication Key = 41555448454E5449434154494F4E4B45\
 APDU = c001810001000060010aff0200
 ```
-dlms_cli 5249435249435249 80000001 454E4352595054494F4E4B45594B4559 41555448454E5449434154494F4E4B45 c001810001000060010aff0200
+dlms_cli -e 5249435249435249 80000001 454E4352595054494F4E4B45594B4559 41555448454E5449434154494F4E4B45 c001810001000060010aff0200
 ```
 Result
 ```
@@ -37,7 +38,7 @@ Encryption Key = 454E4352595054494F4E4B45594B4559\
 Authentication Key = 41555448454E5449434154494F4E4B45\
 APDU = 0de63f2331a09aa85e8830f5f3
 ```
-dlms_cli 5249435249435249 80000001 454E4352595054494F4E4B45594B4559 41555448454E5449434154494F4E4B45 0de63f2331a09aa85e8830f5f3
+dlms_cli -d 5249435249435249 80000001 454E4352595054494F4E4B45594B4559 41555448454E5449434154494F4E4B45 0de63f2331a09aa85e8830f5f3
 ```
 Result
 ```
@@ -59,6 +60,18 @@ Result
 ```
 TAG: 62d423292e0fe5320370881d
 ```
+
+### Generate encryption key
+**Example**
+
+```
+dlms_cli -k
+```
+Result
+```
+Encryption Key: 08f418ad55d89f38388a7e379b16353f
+```
+
 ## Dependency
 [cryptography](https://github.com/pyca/cryptography)
 
