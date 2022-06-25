@@ -11,7 +11,7 @@ def readme():
 
 
 setup(name='dlms_cli',
-      version='1.0',
+      version='1.1',
       description='DLMS CLI Tool for encrypt and decrypt APDU',
       long_description=readme(),
       long_description_content_type="text/markdown",

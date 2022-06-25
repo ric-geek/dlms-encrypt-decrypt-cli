@@ -74,6 +74,14 @@ def main():
         print(f"Encrypted/Dcrypted APDU: {ret[:-32]}")
         print(f"Authentication TAG: {ret[-32:]}")
 
+    if args.dec:
+
+        ret = cifra_decifra(args.dec[0], args.dec[1], args.dec[2], args.dec[3], args.dec[4])
+
+        # Print encrypted or decrypted DLMS APDU
+        print(f"Encrypted/Dcrypted APDU: {ret[:-32]}")
+        print(f"Authentication TAG: {ret[-32:]}")
+
     if args.auth:
 
         ret = auth_apdu(args.auth[0], args.auth[1], args.auth[2], args.auth[3], args.auth[4])
