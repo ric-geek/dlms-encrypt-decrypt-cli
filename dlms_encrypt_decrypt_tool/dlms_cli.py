@@ -70,16 +70,16 @@ def main():
 
         ret = cifra_decifra(args.enc[0], args.enc[1], args.enc[2], args.enc[3], args.enc[4])
 
-        # Print encrypted or decrypted DLMS APDU
-        print(f"Encrypted/Dcrypted APDU: {ret[:-32]}")
+        # Print encrypted DLMS APDU and authentication TAG
+        print(f"Encrypted APDU: {ret[:-32]}")
         print(f"Authentication TAG: {ret[-32:]}")
 
     if args.dec:
 
         ret = cifra_decifra(args.dec[0], args.dec[1], args.dec[2], args.dec[3], args.dec[4])
 
-        # Print encrypted or decrypted DLMS APDU
-        print(f"Encrypted/Dcrypted APDU: {ret[:-32]}")
+        # Print decrypted DLMS APDU and authentication TAG
+        print(f"Decrypted APDU: {ret[:-32]}")
         print(f"Authentication TAG: {ret[-32:]}")
 
     if args.auth:
