@@ -72,6 +72,12 @@ Result
 Encryption Key: 08f418ad55d89f38388a7e379b16353f
 ```
 
+### How to use with the executable
+**Example**
+```
+dlms_cli.exe -e 5249435249435249 80000001 454E4352595054494F4E4B45594B4559 41555448454E5449434154494F4E4B45 c001810001000060010aff0200
+```
+
 ## Dependency
 [cryptography](https://github.com/pyca/cryptography)
 
